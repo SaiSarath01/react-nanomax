@@ -2,24 +2,55 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import ErrorPage from './Error';
+import Layout from './Layout';
+import Active from './pages/Active';
+import Latest from './pages/Latest';
+
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    
+    children: [
+      {
+        path: '/active',
+        element: <Active />
+      },
+      {
+        path: "/latest",
+        element: <Latest />
+      }
+    ]
+  },
+]);
+
 function App() {
+  const queryClient = new QueryClient(
+    {
+      defaultOptions: {
+        queries : {
+          retry : false,
+          refetchInterval: 1000 * 60
+        }
+      }
+    }
+  )
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+    <RouterProvider router={router} />
+    </QueryClientProvider>
   );
 }
 
