@@ -25,7 +25,7 @@ const Layout = () => {
                     }>Latest</NavLink>
                     </li>
                     <li>
-                        <NavLink to={`/not-found`} className={({ isActive, isPending }) =>
+                        <NavLink to={`/devlopment`} className={({ isActive, isPending }) =>
                       isActive
                         ? "active"
                         : isPending
@@ -34,7 +34,7 @@ const Layout = () => {
                     }>Comments</NavLink>
                     </li>
                     <li>
-                        <NavLink to={`/error`} className={({ isActive, isPending }) =>
+                        <NavLink to={`/search`} className={({ isActive, isPending }) =>
                       isActive
                         ? "active"
                         : isPending

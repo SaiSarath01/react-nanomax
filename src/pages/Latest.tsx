@@ -3,6 +3,7 @@ import React from 'react'
 import { latestJson } from '../api';
 import ListItem, { IListItem } from '../components/ListItem';
 import ErrorPage from '../Error';
+import { Helmet } from 'react-helmet';
 
 export interface Resp {
     data: Array<IListItem>
@@ -19,8 +20,7 @@ const Latest = () => {
 
     if (isFetching) {
         return (
-            <div>
-                Loading....
+            <div id='spinner'>
             </div>
         )
     }
@@ -33,8 +33,12 @@ const Latest = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Latest News</title>
+            </Helmet>
+
             {
-                data && data?.data.map((each: IListItem, index: any) => <div key={index}><ListItem  {...each}></ListItem> </div>)
+                data && data?.data.map((each: IListItem, index: any) => <ListItem  {...each} key={index}></ListItem>)
             }
         </div>
     )

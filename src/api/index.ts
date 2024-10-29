@@ -1,11 +1,9 @@
 import axios from 'axios';
-import { IListItem } from '../components/ListItem';
-import { Resp } from '../pages/Latest';
 
 
 export async function activeJson() {
     try {
-        const response = await axios.get('https://lobste.rs/active.json', {
+        const response = await axios.get('https://news-api-7cq6.onrender.com/', {
             withCredentials: false,
             headers: {
                 mode: 'no-cors',

@@ -6,6 +6,7 @@ import {
 import { activeJson } from '../api';
 import ErrorPage from '../Error';
 import ListItem, { IListItem } from '../components/ListItem';
+import {Helmet} from "react-helmet";
 
 const Active = () => {
 
@@ -16,8 +17,7 @@ const Active = () => {
 
     if (isFetching) {
         return (
-            <div>
-                Loading....
+            <div id='spinner'>
             </div>
         )
     }
@@ -28,9 +28,12 @@ const Active = () => {
 
 
     return (
-        <div>
+        <div className='item'>
+            <Helmet>
+                <title>Active News</title>
+            </Helmet>
              {
-                data && data?.data.map((each: IListItem, index: any) => <div key={index}><ListItem  {...each}></ListItem> </div>)
+                data && data?.data.map((each: IListItem, index: any) => <ListItem  {...each} key={index}></ListItem>)
             }
         </div>
     )
