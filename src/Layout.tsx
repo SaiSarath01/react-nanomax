@@ -7,7 +7,7 @@ const Layout = () => {
             <nav>
                 <ul>
                     <li>
-                        <NavLink to={`/active`} className={({ isActive, isPending }) =>
+                        <NavLink to={`/`} className={({ isActive, isPending }) =>
                       isActive
                         ? "active"
                         : isPending
