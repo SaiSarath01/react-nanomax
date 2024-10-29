@@ -16,7 +16,7 @@ const Routes = () => {
           
           children: [
             {
-              path: '/active',
+              path: '/',
               element: <Active />
             },
             {
