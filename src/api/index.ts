@@ -3,8 +3,8 @@ import axios from 'axios';
 
 export async function activeJson() {
     try {
-        let url = 'http://localhost:3002/'
-        // let url = 'https://news-api-7cq6.onrender.com/'
+        // let url = 'http://localhost:3002/'
+        let url = 'https://news-api-7cq6.onrender.com/'
         const response = await axios.get(url, {
             withCredentials: false,
             headers: {
@@ -20,8 +20,8 @@ export async function activeJson() {
 export async function latestJson() {
 
     try {
-        let url = 'http://localhost:3002/recent'
-        // let url = 'https://news-api-7cq6.onrender.com/'
+        // let url = 'http://localhost:3002/recent'
+        let url = 'https://news-api-7cq6.onrender.com/'
         const response = await axios.get(url, {
             withCredentials: false,
             headers: {
