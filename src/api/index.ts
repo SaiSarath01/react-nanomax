@@ -21,7 +21,7 @@ export async function latestJson() {
 
     try {
         // let url = 'http://localhost:3002/recent'
-        let url = 'https://news-api-7cq6.onrender.com/'
+        let url = 'https://news-api-7cq6.onrender.com/recent'
         const response = await axios.get(url, {
             withCredentials: false,
             headers: {
