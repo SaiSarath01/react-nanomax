@@ -18,13 +18,6 @@ const Latest = () => {
 
 
 
-    if (isFetching) {
-        return (
-            <div id='spinner'>
-            </div>
-        )
-    }
-
     if (error) {
         return <ErrorPage />
     }
@@ -32,15 +25,18 @@ const Latest = () => {
 
 
     return (
-        <div>
+
+        <>
             <Helmet>
                 <title>Latest News</title>
             </Helmet>
+            <ol className='stories list'>
 
-            {
-                data && data?.data.map((each: IListItem, index: any) => <ListItem  {...each} key={index}></ListItem>)
-            }
-        </div>
+                {
+                    data && data?.data.map((each: any, index: any) => <ListItem  {...each} key={index}></ListItem>)
+                }
+            </ol>
+        </>
     )
 }
 

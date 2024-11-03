@@ -3,7 +3,9 @@ import axios from 'axios';
 
 export async function activeJson() {
     try {
-        const response = await axios.get('https://news-api-7cq6.onrender.com/', {
+        let url = 'http://localhost:3002/'
+        // let url = 'https://news-api-7cq6.onrender.com/'
+        const response = await axios.get(url, {
             withCredentials: false,
             headers: {
                 mode: 'no-cors',
@@ -17,21 +19,19 @@ export async function activeJson() {
 
 export async function latestJson() {
 
-    return new Promise((resolve, reject) => {
-        setTimeout(async () => {
-            try {
-
-                let resp = await fetchData();
-
-                return resolve(resp);
-            } catch (error) {
-                return resolve({
-                    data: []
-                });
-
-            }
-        }, 2600)
-    })
+    try {
+        let url = 'http://localhost:3002/recent'
+        // let url = 'https://news-api-7cq6.onrender.com/'
+        const response = await axios.get(url, {
+            withCredentials: false,
+            headers: {
+                mode: 'no-cors',
+            },
+        });
+        return response;
+    } catch (error) {
+        throw error;
+    }
 }
 
 async function fetchData() {

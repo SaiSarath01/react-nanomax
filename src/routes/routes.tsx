@@ -20,7 +20,7 @@ const Routes = () => {
               element: <Active />
             },
             {
-              path: "/latest",
+              path: "/recent",
               element: <Latest />
             },
             {

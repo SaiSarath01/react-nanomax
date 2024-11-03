@@ -11,7 +11,7 @@ export default function ErrorPage() {
       <p>
         <i>{error?.message || ''}</i>
       </p>
-      <Link to={'/latest'}>
+      <Link to='/'>
         Homepage
       </Link>
     </div>
